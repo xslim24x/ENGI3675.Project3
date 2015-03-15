@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proj3DBAccess
 {
-    public class Class1
+    public class Assignment3
     {
     }
 }
