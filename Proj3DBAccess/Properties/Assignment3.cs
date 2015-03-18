@@ -30,7 +30,7 @@
             TimeSpan time_f = new TimeSpan();
 
            NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;" +
-                   "IntegratedSecurity=True;Database=assignment3;");
+                   "IntegratedSecurity=True;Database=Assignment3;");
 
             conn.Open();
 
