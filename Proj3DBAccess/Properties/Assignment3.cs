@@ -52,7 +52,7 @@
            
             time_f = DateTime.Now.TimeOfDay;
             time_t = time_f - time_s;
-            str1 += +time_t+" ";
+            str1 = +time_t+" ";
             hpds_row.Add(x);
             hpds_execute_t.Add(str1);
 
@@ -68,7 +68,7 @@
 
             time_f = DateTime.Now.TimeOfDay;
             time_t = time_f - time_s;
-            str1 += +time_t +"";
+            str1 = +time_t +"";
             hpds_indexed_row.Add(x);
             hpds_indexed_execute_t.Add(str1);
            
@@ -118,7 +118,7 @@
 
            time_f = DateTime.Now.TimeOfDay;
            time_t = time_f - time_s;
-           str1 += +time_t + " ";
+           str1 = +time_t + " ";
            hpds_row_w.Add(x);
            hpds_execute_t_w.Add(str1);
 
@@ -134,7 +134,7 @@
 
            time_f = DateTime.Now.TimeOfDay;
            time_t = time_f - time_s;
-           str1 += +time_t + "";
+           str1 = +time_t + "";
            hpds_indexed_row_w.Add(x);
            hpds_indexed_execute_t_w.Add(str1);
 
