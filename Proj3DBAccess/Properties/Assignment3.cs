@@ -10,7 +10,7 @@
     public class Assignment3
     {
       /// <summary>
-      /// Puporse of the select_all function is to get the total number of rows for tables:hpds, and hpds_indexed.
+      /// Purpose of the select_all function is to get the total number of rows for tables:hpds, and hpds_indexed.
       /// the function also gets the time that it took to execute the query 
       /// </summary>
       /// <param name="hpds_row"></param>
@@ -18,19 +18,16 @@
       /// <param name="hpds_indexed_row"></param>
       /// <param name="hpds_indexed_execute_t"></param>
       
-       public static void select_all(out List<int> hpds_row, out List<string> hpds_execute_t, 
-       out List<int> hpds_indexed_row, out List <string> hpds_indexed_execute_t)       
+       public static void select_all(out int hpds_row, out TimeSpan hpds_time, 
+       out int hpds_indexed_row, out TimeSpan hpds_indexed_time)       
     {
-            int x = 0;
-            hpds_row = new List <int> ();
-            hpds_execute_t = new List<string>();
-            hpds_indexed_row = new List<int>();
-            hpds_indexed_execute_t = new List<string>();
-            string str1= "";
-            
+            hpds_row = 0;
+            hpds_indexed_row = 0;
+            hpds_time = new TimeSpan();
+            hpds_indexed_time = new TimeSpan();
+     
             TimeSpan time_s = new TimeSpan();
             TimeSpan time_f = new TimeSpan();
-            TimeSpan time_t = new TimeSpan();
 
            NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;" +
                    "IntegratedSecurity=True;Database=assignment3;");
@@ -46,15 +43,11 @@
             
             while (reader1.Read())
             {
-                x++;
-               
+                hpds_row++;
             }
            
             time_f = DateTime.Now.TimeOfDay;
-            time_t = time_f - time_s;
-            str1 = +time_t+" ";
-            hpds_row.Add(x);
-            hpds_execute_t.Add(str1);
+            hpds_time = time_f - time_s;
 
             Command_1.CommandText = "SELECT * from hpds_indexed";
 
@@ -62,16 +55,11 @@
 
             while (reader1.Read())
             {
-                x++;
-
+                hpds_indexed_row++;
             }
 
             time_f = DateTime.Now.TimeOfDay;
-            time_t = time_f - time_s;
-            str1 = +time_t +"";
-            hpds_indexed_row.Add(x);
-            hpds_indexed_execute_t.Add(str1);
-           
+            hpds_indexed_time = time_f - time_s;
         }
 
         /// <summary>
@@ -83,23 +71,19 @@
         /// <param name="hpds_execute_t_w"></param>
         /// <param name="hpds_indexed_row_w"></param>
         /// <param name="hpds_indexed_execute_t_w"></param>
-
-       public static void select_where(out List<int> hpds_row_w, out List<string> hpds_execute_t_w,
-       out List<int> hpds_indexed_row_w, out List<string> hpds_indexed_execute_t_w)
+       public static void select_where(out int hpds_row_w, out TimeSpan hpds_time_w,
+       out int hpds_indexed_row_w, out TimeSpan hpds_indexed_time_w)
        {
-           int x = 0;
-           hpds_row_w = new List<int>();
-           hpds_execute_t_w = new List<string>();
-           hpds_indexed_row_w = new List<int>();
-           hpds_indexed_execute_t_w = new List<string>();
-           string str1 = "";
+           hpds_row_w = 0;
+           hpds_indexed_row_w = 0;
+           hpds_time_w = new TimeSpan();
+           hpds_indexed_time_w = new TimeSpan();
 
            TimeSpan time_s = new TimeSpan();
            TimeSpan time_f = new TimeSpan();
-           TimeSpan time_t = new TimeSpan();
 
            NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;" +
-                  "IntegratedSecurity=True;Database=assignment3;");
+                   "IntegratedSecurity=True;Database=assignment3;");
 
            conn.Open();
 
@@ -112,15 +96,11 @@
 
            while (reader1.Read())
            {
-               x++;
-
+               hpds_row_w++;
            }
 
            time_f = DateTime.Now.TimeOfDay;
-           time_t = time_f - time_s;
-           str1 = +time_t + " ";
-           hpds_row_w.Add(x);
-           hpds_execute_t_w.Add(str1);
+           hpds_time_w = time_f - time_s;
 
            Command_1.CommandText = "SELECT * from hpds_indexed where continent = 'Asia';";
 
@@ -128,16 +108,11 @@
 
            while (reader1.Read())
            {
-               x++;
-
+               hpds_indexed_row_w++;
            }
 
            time_f = DateTime.Now.TimeOfDay;
-           time_t = time_f - time_s;
-           str1 = +time_t + "";
-           hpds_indexed_row_w.Add(x);
-           hpds_indexed_execute_t_w.Add(str1);
-
+           hpds_indexed_time_w = time_f - time_s;
        }
         /// <summary>
         /// This query_plan function simply returns the query plan for both of the sql quries with the where clause
@@ -146,7 +121,7 @@
         /// <returns></returns>
         public static string query_plan()
        {
-           int x=0;
+           int x = 0;
            string plan = "";
            List<string> plan_x = new List<string>();
 
@@ -169,6 +144,7 @@
            }
 
            Command_1.CommandText = "Explain SELECT * from hpds_indexed where continent = 'Asia';";
+           
            x = 0;
            
            while (reader1.Read())
