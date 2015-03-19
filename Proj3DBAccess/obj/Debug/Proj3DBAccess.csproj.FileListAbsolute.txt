@@ -1,6 +1,0 @@
-C:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess\bin\Debug\Proj3DBAccess.dll
-C:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess\bin\Debug\Proj3DBAccess.pdb
-C:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess\bin\Debug\Proj3DBAccess.dll.CodeAnalysisLog.xml
-C:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess\bin\Debug\Proj3DBAccess.dll.lastcodeanalysissucceeded
-C:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess\obj\Debug\Proj3DBAccess.dll
-C:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess\obj\Debug\Proj3DBAccess.pdb
