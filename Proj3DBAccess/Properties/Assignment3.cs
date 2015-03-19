@@ -49,8 +49,13 @@
             time_f = DateTime.Now.TimeOfDay;
             hpds_time = time_f - time_s;
 
-            Command_1.CommandText = "SELECT * from hpds_indexed";
+            reader1.Close();
+            conn.Close();
+            conn.Open();
 
+            NpgsqlCommand Command_2 = conn.CreateCommand();
+            Command_2.CommandText = "Explain SELECT * from hpds_indexed ;";
+            NpgsqlDataReader reader2 = Command_2.ExecuteReader();
             time_s = DateTime.Now.TimeOfDay;
 
             while (reader1.Read())
@@ -88,8 +93,7 @@
            conn.Open();
 
            NpgsqlCommand Command_1 = conn.CreateCommand();
-
-           Command_1.CommandText = "SELECT * from hpds where continent = 'Asia';";
+           Command_1.CommandText = "SELECT * from hpds where continent = 'Asia' AND amount < 1000 AND sector='Livestock';";
            NpgsqlDataReader reader1 = Command_1.ExecuteReader();
 
            time_s = DateTime.Now.TimeOfDay;
@@ -101,12 +105,18 @@
 
            time_f = DateTime.Now.TimeOfDay;
            hpds_time_w = time_f - time_s;
+           
+           reader1.Close();
+           conn.Close();
+           conn.Open();
 
-           Command_1.CommandText = "SELECT * from hpds_indexed where continent = 'Asia';";
+           NpgsqlCommand Command_2 = conn.CreateCommand();
+           Command_2.CommandText = "Explain SELECT * from hpds_indexed where continent = 'Asia' AND amount < 1000 AND sector='Livestock';";
+           NpgsqlDataReader reader2 = Command_2.ExecuteReader();
 
            time_s = DateTime.Now.TimeOfDay;
 
-           while (reader1.Read())
+           while (reader2.Read())
            {
                hpds_indexed_row_w++;
            }
@@ -133,7 +143,7 @@
 
             NpgsqlCommand Command_1 = conn.CreateCommand();
 
-            Command_1.CommandText = "Explain SELECT * from hpds where continent = 'Asia';";
+            Command_1.CommandText = "Explain SELECT * from hpds where continent = 'Asia' AND amount < 1000 AND sector='Livestock';";
             NpgsqlDataReader reader1 = Command_1.ExecuteReader();
 
             while (reader1.Read())
@@ -147,18 +157,14 @@
             conn.Open();
 
             NpgsqlCommand Command_2 = conn.CreateCommand();
-            Command_2.CommandText = "Explain SELECT * from hpds_indexed where continent = 'Asia';";
+            Command_2.CommandText = "Explain SELECT * from hpds_indexed where continent = 'Asia' AND amount < 1000 AND sector='Livestock';";
             NpgsqlDataReader reader2 = Command_2.ExecuteReader();
 
             while (reader2.Read())
             {
                 plan2 += (string)reader1["QUERY PLAN"];
             }
-
-            System.Console.WriteLine(plan);
-
         }
-       }
-
-    }
+     }
 }
+
