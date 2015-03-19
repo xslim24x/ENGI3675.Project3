@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assignment3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryTester.cs" />
   </ItemGroup>
