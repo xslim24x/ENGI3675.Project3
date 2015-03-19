@@ -1,6 +1,8 @@
-﻿// <copyright file="Project3Test.cs" company="ENGI3675">
+﻿//-----------------------------------------------------------------------
+// <copyright file="Project3Test.cs" company="ENGI3675">
 //     Stupid Required copyright tag.
 // </copyright>
+//-----------------------------------------------------------------------
 
 namespace Project3Test
 {

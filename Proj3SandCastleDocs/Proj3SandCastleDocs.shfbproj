@@ -34,6 +34,11 @@
       <DocumentationSource sourceFile="..\Proj3UnitTesting\Proj3UnitTesting.csproj" />
       <DocumentationSource sourceFile="..\Proj3DBAccess\Proj3DBAccess.csproj" />
     </DocumentationSources>
+    <ProjectSummary>ENGI3675 Assignment 3
+SQL Indexing Testing</ProjectSummary>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="Proj3DBAccess" isDocumented="True" xmlns="">Database Access Code</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Project3Test" isDocumented="True" xmlns="">Unit Testing for Database Access Code</NamespaceSummaryItem></NamespaceSummaries>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

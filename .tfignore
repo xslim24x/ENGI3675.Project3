@@ -41,6 +41,10 @@
 ################################################################################
 
 \Proj3DBAccess\packages
+\Proj3DBAccess\obj
+\Proj3DBAccess\bin
+\Proj3UnitTesting\obj
+\Proj3UnitTesting\bin
 !\Proj3DBAccess\packages\repositories.config
 \Proj3SandCastleDocs\Help
 
