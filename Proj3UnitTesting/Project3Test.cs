@@ -1,8 +1,8 @@
-﻿// <copyright name="Project3Test" company="ENGI3675" file="Proj3Test.cs">
+﻿// <copyright file="Project3Test.cs" company="ENGI3675">
 //     Stupid Required copyright tag.
 // </copyright>
 
-namespace Proj3UnitTesting
+namespace Project3Test
 {
     using System;
     using System.Collections.Generic;
