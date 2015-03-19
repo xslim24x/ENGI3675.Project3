@@ -12,15 +12,15 @@
          <Members>
           <Member Name="#queryPlan(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2015-03-19 06:57:56Z" FixCategory="DependsOnFix">
-             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess" File="QueryTester.cs" Line="72">The query string passed to 'NpgsqlCommand.CommandText.set(string)' in 'QueryTester.queryPlan(string)' could contain the following variables 'tablename'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2015-03-19 19:08:20Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess" File="QueryTester.cs" Line="78">The query string passed to 'NpgsqlCommand.CommandText.set(string)' in 'QueryTester.queryPlan(string)' could contain the following variables 'tablename'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#selectAllRows(System.TimeSpan&amp;,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2015-03-19 06:57:56Z" FixCategory="DependsOnFix">
-             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess" File="QueryTester.cs" Line="23">The query string passed to 'NpgsqlCommand.CommandText.set(string)' in 'QueryTester.selectAllRows(ref TimeSpan, string)' could contain the following variables 'tablename'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2015-03-19 19:08:20Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Slim\Documents\Visual Studio 2013\Projects\Project 3 - ENGI3675\Proj3DBAccess" File="QueryTester.cs" Line="29">The query string passed to 'NpgsqlCommand.CommandText.set(string)' in 'QueryTester.selectAllRows(ref TimeSpan, string)' could contain the following variables 'tablename'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>

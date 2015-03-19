@@ -31,11 +31,13 @@ namespace Proj3DBAccess
             int rowcount = 0;
             timeticker = DateTime.Now.TimeOfDay;
             NpgsqlDataReader reader = MyQuery.ExecuteReader();
+            timeticker = DateTime.Now.TimeOfDay - timeticker;
+
             while (reader.Read())
             {
                 rowcount++;
             }
-            timeticker = DateTime.Now.TimeOfDay - timeticker;
+            
             reader.Close();
             conn.Close();
             
