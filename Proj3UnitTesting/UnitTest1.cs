@@ -14,26 +14,28 @@
             int total_row1, total_row2;
             
             int hpds_row_test;
-            TimeSpan hpds_time_t = new TimeSpan();
+            TimeSpan hpds_time_t;
             int hpds_indexed_row_test;
-            TimeSpan hpds_indexed_time_t = new TimeSpan();
+            TimeSpan hpds_indexed_time_t;
 
             int hpds_row_test_w;
-            TimeSpan hpds_time_t_w = new TimeSpan();
+            TimeSpan hpds_time_t_w;
             int hpds_indexed_row_test_w;
-            TimeSpan hpds_indexed_time_t_w = new TimeSpan();
+            TimeSpan hpds_indexed_time_t_w;
 
-            string plan_test = "";
-
+            string plan_hpds_test;
+            string plan_hpds_indexed_test;
             
             Assignment3.select_all (out hpds_row_test, out hpds_time_t, 
                 out hpds_indexed_row_test,out hpds_indexed_time_t);
 
             Assignment3.select_where(out hpds_row_test_w, out hpds_time_t_w, 
                 out hpds_indexed_row_test_w, out hpds_indexed_time_t_w);
+
+            Assignment3.query_plan(out plan_hpds_test, out plan_hpds_indexed_test);
             
             total_row1 = hpds_row_test + hpds_indexed_row_test;
-            Assert.IsFalse(hpds_row_test == 0);
+            Assert.AreEqual(0,hpds_row_test);
             Console.WriteLine("Database has no contents to test");
             Assert.IsFalse(hpds_indexed_row_test == 0);
             Console.WriteLine("Database has no contents to test");
@@ -52,12 +54,7 @@
 
             Assert.IsFalse(hpds_time_t_w > hpds_indexed_time_t_w);
 
-            System.Diagnostics.Debug.WriteLine(plan_test);
 
-
-
-
-           
         }
     }
 }

@@ -119,43 +119,45 @@
         /// one for the hpds, and one for hpds_indexed
         /// </summary>
         /// <returns></returns>
-        public static string query_plan()
-       {
-           int x = 0;
-           string plan = "";
-           List<string> plan_x = new List<string>();
+        public static void query_plan(out string plan, out string plan2)
+       {   
+            plan = "";
+            plan2 = "";
+            List<string> plan_x = new List<string>();
+            List<string> plan_x2 = new List<string>();
 
-           NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;" +
-              "IntegratedSecurity=True;Database=assignment3;");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;" +
+               "IntegratedSecurity=True;Database=Assignment3;");
 
-           conn.Open();
+            conn.Open();
 
-           NpgsqlCommand Command_1 = conn.CreateCommand();
+            NpgsqlCommand Command_1 = conn.CreateCommand();
 
-           Command_1.CommandText = "Explain SELECT * from hpds where continent = 'Asia';";
-           NpgsqlDataReader reader1 = Command_1.ExecuteReader();
+            Command_1.CommandText = "Explain SELECT * from hpds where continent = 'Asia';";
+            NpgsqlDataReader reader1 = Command_1.ExecuteReader();
 
-           while (reader1.Read())
-           {
-               plan_x.Add((string)reader1["QUERY PLAN"]);
-               plan += "" + plan_x[x] + "";
-               x++;
+            while (reader1.Read())
+            {
+                plan += (string)reader1["QUERY PLAN"];
 
-           }
+            }
 
-           Command_1.CommandText = "Explain SELECT * from hpds_indexed where continent = 'Asia';";
-           
-           x = 0;
-           
-           while (reader1.Read())
-           {
-               plan_x.Add((string)reader1["QUERY PLAN"]);
-               plan += "" + plan_x[x] + "";
-               x++;
+            reader1.Close();
+            conn.Close();
+            conn.Open();
 
-           } 
-            
-            return plan;
+            NpgsqlCommand Command_2 = conn.CreateCommand();
+            Command_2.CommandText = "Explain SELECT * from hpds_indexed where continent = 'Asia';";
+            NpgsqlDataReader reader2 = Command_2.ExecuteReader();
+
+            while (reader2.Read())
+            {
+                plan2 += (string)reader1["QUERY PLAN"];
+            }
+
+            System.Console.WriteLine(plan);
+
+        }
        }
 
     }
