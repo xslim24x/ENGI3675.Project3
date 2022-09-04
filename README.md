@@ -1,0 +1,2 @@
+# ENGI3675.Project3
+School project to looking at the time difference in using a SQL index on a large dataset.  Implemented unit testing, a linter (StyleCop) and help builder (Sand Castle). Developed by Slim Babay and George Dziouba. Migrated from TFS.
